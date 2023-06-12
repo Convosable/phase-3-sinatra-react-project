@@ -7,6 +7,7 @@ class Cats < ActiveRecord::Migration[6.1]
       t.string :breed
       t.string :sex
       t.float :weight
+      t.string :size
       t.integer :shelter_id
       t.integer :breeder_id
       t.timestamp :created_at
