@@ -21,6 +21,23 @@ class ApplicationController < Sinatra::Base
     dogs.to_json
   end
 
+  post "/dogs" do
+    dog = Dog.create(
+      name: params[:name],
+      image_url: params[:image_url],
+      age: params[:age],
+      breed: params[:breed],
+      sex: params[:sex],
+      weight: params[:weight],
+      size: params[:size],
+      shelter_id: params[:shelter_id],
+      breeder_id: params[:breeder_id],
+      created_at: params[:created_at],
+      updated_at: params[:updated_at]
+    )
+    dog.to_json
+  end
+
   get "/cats" do
     cats = Cat.all
     cats.to_json

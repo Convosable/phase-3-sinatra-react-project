@@ -21,7 +21,7 @@ puts "🌱 Seeding spices..."
     20.times do 
         Dog.create(
             name: Faker::Creature::Dog.name,
-            image_url: Faker::LoremFlickr.image(size: "960x720", search_terms: ['dog']),
+            image_url: Faker::LoremFlickr.image(size: "640x480", search_terms: ['dog']),
             age: rand(1..15),
             breed: Faker::Creature::Dog.breed,
             sex: Faker::Creature::Dog.gender,
@@ -37,7 +37,7 @@ puts "🌱 Seeding spices..."
     20.times do
         Cat.create(
             name: Faker::Creature::Cat.name,
-            image_url: Faker::LoremFlickr.image(size: "960x720", search_terms: ['cat']),
+            image_url: Faker::LoremFlickr.image(size: "640x480", search_terms: ['cat']),
             age: rand(1..15),
             breed: Faker::Creature::Cat.breed,
             sex: Faker::Creature::Dog.gender,
