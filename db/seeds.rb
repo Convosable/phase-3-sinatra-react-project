@@ -9,16 +9,7 @@ puts "🌱 Seeding spices..."
         )
     end
 
-    5.times do
-        Breeder.create(
-            name: Faker::Company.name,
-            location: Faker::Address.full_address,
-            bio: Faker::Company.catch_phrase,
-            established_date: rand(1950..2023)
-        )
-    end
-
-    20.times do 
+    10.times do 
         Dog.create(
             name: Faker::Creature::Dog.name,
             image_url: Faker::LoremFlickr.image(size: "640x480", search_terms: ['dog']),
@@ -34,7 +25,7 @@ puts "🌱 Seeding spices..."
         )
     end
 
-    20.times do
+    10.times do
         Cat.create(
             name: Faker::Creature::Cat.name,
             image_url: Faker::LoremFlickr.image(size: "640x480", search_terms: ['cat']),

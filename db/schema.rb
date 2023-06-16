@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_12_174119) do
-
-  create_table "breeders", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.string "bio"
-    t.integer "established_date"
-  end
+ActiveRecord::Schema.define(version: 2023_06_16_013644) do
 
   create_table "cats", force: :cascade do |t|
     t.string "name"

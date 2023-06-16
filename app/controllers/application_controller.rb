@@ -14,11 +14,6 @@ class ApplicationController < Sinatra::Base
     shelter.to_json
   end
 
-  get "/breeders" do
-    breeders = Breeder.all
-    breeders.to_json
-  end
-
   get "/dogs" do
     dogs = Dog.all
     dogs.to_json
@@ -58,8 +53,6 @@ class ApplicationController < Sinatra::Base
     dog.destroy
     dog.to_json
   end
-
-
 
   get "/cats" do
     cats = Cat.all
