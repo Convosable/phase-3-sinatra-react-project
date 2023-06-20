@@ -4,14 +4,14 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   get "/shelters" do
     shelters = Shelter.all
-    shelters.to_json(include: [:dogs])
+    shelters.to_json(include: [:dogs, :cats])
   end
   ## add (incliude [:xxx])
   ##when doing that tho, the dogs will be nest d wihtinn the shelters object so to updtae, you would need to update dog and shelter within the udpdate request and set both states
 
   get "/shelters/:id" do
     shelter = Shelter.find(params[:id])
-    shelter.to_json(include: [:dogs])
+    shelter.to_json(include: [:dogs, :cats])
   end
 
   get "/dogs" do
@@ -110,7 +110,7 @@ class ApplicationController < Sinatra::Base
     cat.to_json
   end
 
-  delete "/cat/:id" do
+  delete "/cats/:id" do
     cat = Cat.find(params[:id])
     cat.destroy
     cat.to_json
