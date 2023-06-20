@@ -70,6 +70,11 @@ class ApplicationController < Sinatra::Base
     cats.to_json
   end
 
+  get "/cats/:id" do
+    cat = Cat.find(params[:id])
+    cat.to_json
+  end
+
   post "/cats" do
     cat = Cat.create(
       name: params[:name],
@@ -84,6 +89,30 @@ class ApplicationController < Sinatra::Base
       created_at: params[:created_at],
       updated_at: params[:updated_at]
     )
+    cat.to_json
+  end
+
+  patch "/cats/:id" do
+    cat = Cat.find(params[:id])
+    cat.update(
+      name: params[:name],
+      image_url: params[:image_url],
+      age: params[:age],
+      breed: params[:breed],
+      sex: params[:sex],
+      weight: params[:weight],
+      size: params[:size],
+      shelter_id: params[:shelter_id],
+      breeder_id: params[:breeder_id],
+      created_at: params[:created_at],
+      updated_at: params[:updated_at]
+    )
+    cat.to_json
+  end
+
+  delete "/cat/:id" do
+    cat = Cat.find(params[:id])
+    cat.destroy
     cat.to_json
   end
 
