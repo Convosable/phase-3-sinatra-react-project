@@ -9,9 +9,9 @@ class Dogs < ActiveRecord::Migration[6.1]
       t.float :weight
       t.string :size
       t.integer :shelter_id
-      t.integer :breeder_id
       t.timestamp :created_at
       t.timestamp :updated_at
     end
   end
 end
+

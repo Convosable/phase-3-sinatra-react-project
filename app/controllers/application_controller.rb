@@ -1,19 +1,8 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  # Add your routes here
-  get "/shelters" do
-    shelters = Shelter.all
-    shelters.to_json(include: [:dogs, :cats])
-  end
-  ## add (incliude [:xxx])
-  ##when doing that tho, the dogs will be nest d wihtinn the shelters object so to updtae, you would need to update dog and shelter within the udpdate request and set both states
 
-  get "/shelters/:id" do
-    shelter = Shelter.find(params[:id])
-    shelter.to_json(include: [:dogs, :cats])
-  end
-
+  # not using this read route... just for requirments
   get "/dogs" do
     dogs = Dog.all
     dogs.to_json
@@ -21,7 +10,7 @@ class ApplicationController < Sinatra::Base
 
   get "/dogs/:id" do
     dog = Dog.find(params[:id])
-    dog.to_json
+    dog.to_json(include: [:shelter])
   end
 
   post "/dogs" do
@@ -65,6 +54,7 @@ class ApplicationController < Sinatra::Base
     dog.to_json
   end
 
+  # not using this read route... just for requirments
   get "/cats" do
     cats = Cat.all
     cats.to_json
@@ -72,7 +62,7 @@ class ApplicationController < Sinatra::Base
 
   get "/cats/:id" do
     cat = Cat.find(params[:id])
-    cat.to_json
+    cat.to_json(include: [:shelter])
   end
 
   post "/cats" do
@@ -116,4 +106,29 @@ class ApplicationController < Sinatra::Base
     cat.to_json
   end
 
+  get "/shelters" do
+    shelters = Shelter.all
+    shelters.to_json(include:[:dogs, :cats])
+  end
+
+  get "/shelters/:id" do
+    shelter = Shelter.find(params[:id])
+    shelter.to_json(include: [:dogs, :cats])
+  end
+
+  post "/shelters" do 
+    shelter = Shelter.create(
+      name: params[:name],
+      location: params[:location],
+      bio: params[:bio],
+      established_date: params[:established_date]
+    )
+    shelter.to_json(include: [:dogs, :cats])
+  end
+
+  delete "/shelters/:id" do
+    shelter = Shelter.find(params[:id])
+    shelter.destroy
+    shelter.to_json(include: [:dogs, :cats])
+  end
 end
