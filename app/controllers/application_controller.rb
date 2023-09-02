@@ -28,7 +28,8 @@ class ApplicationController < Sinatra::Base
   # Dog
 
   post "/dogs" do
-    dog = Dog.create(
+    shelter = Shelter.find(params[:shelter_id])
+    dog = shelter.dogs.create(
       name: params[:name],
       image_url: params[:image_url],
       age: params[:age],
@@ -36,8 +37,6 @@ class ApplicationController < Sinatra::Base
       sex: params[:sex],
       weight: params[:weight],
       size: params[:size],
-      # find shelter instead of params[;shelter]?? 
-      shelter_id: params[:shelter_id],
       created_at: params[:created_at],
       updated_at: params[:updated_at]
     )
@@ -54,7 +53,6 @@ class ApplicationController < Sinatra::Base
       sex: params[:sex],
       weight: params[:weight],
       size: params[:size],
-      #find shelter instead of params[;shelter]
       shelter_id: params[:shelter_id],
       created_at: params[:created_at],
       updated_at: params[:updated_at]
@@ -69,7 +67,7 @@ class ApplicationController < Sinatra::Base
 
 
   # Cat
-  
+
   post "/cats" do
     cat = Cat.create(
       name: params[:name],

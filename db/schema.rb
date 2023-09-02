@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2023_06_16_013644) do
     t.float "weight"
     t.string "size"
     t.integer "shelter_id"
-    t.integer "breeder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -35,7 +34,6 @@ ActiveRecord::Schema.define(version: 2023_06_16_013644) do
     t.float "weight"
     t.string "size"
     t.integer "shelter_id"
-    t.integer "breeder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

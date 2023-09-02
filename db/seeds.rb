@@ -19,7 +19,6 @@ puts "🌱 Seeding spices..."
             weight: rand(5..100),
             size: Faker::Creature::Dog.size,
             shelter_id: rand(1..5),
-            breeder_id: rand(1..5),
             created_at: Time.now,
             updated_at: Time.now
         )
@@ -35,7 +34,6 @@ puts "🌱 Seeding spices..."
             weight: rand(5..50),
             size: Faker::Creature::Dog.size,
             shelter_id: rand(1..5),
-            breeder_id: rand(1..5),
             created_at: Time.now,
             updated_at: Time.now
         )
